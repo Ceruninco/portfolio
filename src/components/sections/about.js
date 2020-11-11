@@ -116,9 +116,9 @@ const StyledPic = styled.div`
 const About = () => {
   const data = useStaticQuery(graphql`
     query {
-      avatar: file(sourceInstanceName: { eq: "images" }, relativePath: { eq: "photoCV.jpg" }) {
+      avatar: file(sourceInstanceName: { eq: "images" }, relativePath: { eq: "photo.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 500, traceSVG: { color: "#64ffda" }) {
+          fluid(maxWidth: 500, traceSVG: { color: "#303C55" }) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
@@ -132,7 +132,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'HTML & (S)CSS', 'React', 'Vue', 'Node.js', 'WordPress'];
+  const skills = ['Java', 'C/C++', 'R programming', 'Mathematics/Algorithm Design', 'Data Analysis', 'Flutter/Firebase'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -144,7 +144,7 @@ const About = () => {
             <p>Hello! I'm Julien Nicolas, an engineering student from France.</p>
 
             <p>
-            I'm passionate about Data Science, Algorithms and Software Development, and everything in between.
+            I'm passionate about Data Science, Algorithm Design and Software Development, and everything in between.
             </p>
 
             <p>
