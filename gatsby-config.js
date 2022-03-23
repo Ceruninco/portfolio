@@ -6,12 +6,13 @@ module.exports = {
     description:
       'Julien Nicolas is a software engineer m passionate about Data Science, Algorithms and Software Development.',
     siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
-    image: '/photoCV.jpg', // Path to your image you placed in the 'static' folder
+    image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@bchiang7',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
@@ -76,7 +77,7 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
-              tracedSVG: true,
+              tracedSVG: { color: config.colors.green },
             },
           },
           {
