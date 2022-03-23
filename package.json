@@ -15,7 +15,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "npm run develop ",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
@@ -36,7 +36,7 @@
     "animejs": "^3.2.1",
     "babel-plugin-styled-components": "^2.0.6",
     "gatsby": "^4.10.2",
-    "gatsby-plugin-image": "1.6.0",
+    "gatsby-image": "14.18.0",
     "gatsby-plugin-google-analytics": "^4.10.0",
     "gatsby-plugin-manifest": "^4.10.1",
     "gatsby-plugin-netlify": "^4.1.0",
