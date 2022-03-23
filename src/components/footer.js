@@ -60,9 +60,9 @@ const StyledCredit = styled.div`
     }
     svg {
       display: inline-block;
-      width: auto;
-      height: 15px;
       margin-right: 5px;
+      width: 14px;
+      height: 14px;
     }
   }
 `;
@@ -106,7 +106,7 @@ const Footer = () => {
 
       <StyledCredit tabindex="-1">
         <a href="https://github.com/bchiang7/v4">
-          <div>Designed &amp; Built by Julien Nicolas, from the template of Brittany Chiang</div>
+          <div>Designed &amp; Built by Brittany Chiang</div>
 
           {githubInfo.stars && githubInfo.forks && (
             <div className="github-stats">

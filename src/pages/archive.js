@@ -7,6 +7,7 @@ import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { Layout } from '@components';
 import { Icon } from '@components/icons';
+import { usePrefersReducedMotion } from '@hooks';
 
 const StyledTableContainer = styled.div`
   margin: 100px -20px;
@@ -133,8 +134,13 @@ const ArchivePage = ({ location, data }) => {
   const revealTitle = useRef(null);
   const revealTable = useRef(null);
   const revealProjects = useRef([]);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
     sr.reveal(revealTitle.current, srConfig());
     sr.reveal(revealTable.current, srConfig(200, 0));
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 10)));
@@ -168,8 +174,8 @@ const ArchivePage = ({ location, data }) => {
                     date,
                     github,
                     external,
-                //    ios,
-                 //   android,
+                    ios,
+                    android,
                     title,
                     tech,
                     company,
@@ -207,6 +213,16 @@ const ArchivePage = ({ location, data }) => {
                               <Icon name="GitHub" />
                             </a>
                           )}
+                          {ios && (
+                            <a href={ios} aria-label="Apple App Store Link">
+                              <Icon name="AppStore" />
+                            </a>
+                          )}
+                          {android && (
+                            <a href={android} aria-label="Google Play Store Link">
+                              <Icon name="PlayStore" />
+                            </a>
+                          )}
                         </div>
                       </td>
                     </tr>
@@ -240,6 +256,8 @@ export const pageQuery = graphql`
             tech
             github
             external
+            ios
+            android
             company
           }
           html

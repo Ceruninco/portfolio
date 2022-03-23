@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
+import { usePrefersReducedMotion } from '@hooks';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -22,6 +22,7 @@ const StyledText = styled.div`
   ul.skills-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 200px));
+    grid-gap: 0 10px;
     padding: 0;
     margin: 20px 0 0 0;
     overflow: hidden;
@@ -114,25 +115,18 @@ const StyledPic = styled.div`
 `;
 
 const About = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      avatar: file(sourceInstanceName: { eq: "images" }, relativePath: { eq: "photo.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 500, traceSVG: { color: "#303C55" }) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  `);
-
   const revealContainer = useRef(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['Java', 'C/C++', 'R programming', 'Mathematics/Algorithm Design', 'Data Analysis', 'Flutter/Firebase'];
+  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -141,19 +135,34 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
-            <p>Hello! I'm Julien Nicolas, an engineering student from France.</p>
-
             <p>
-            I'm passionate about Data Science, Algorithm Design and Software Development, and everything in between.
+              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
+              interest in web development started back in 2012 when I decided to try editing custom
+              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
+              about HTML &amp; CSS!
             </p>
 
             <p>
-              I'm studying at {' '}
-              <a href="https://www.insa-lyon.fr/">INSA Lyon</a>, in the
-               <a href="https://www.insa-lyon.fr/en/computer-science-and-information-technology"> Computer Science and Information Technology department</a> 
+              Fast-forward to today, and I’ve had the privilege of working at{' '}
+              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
+              <a href="https://starry.com/">a start-up</a>,{' '}
+              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
+              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
+              main focus these days is building accessible, inclusive products and digital
+              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
+              clients.
             </p>
 
-            <p>Here are a few technologies I've been working with recently:</p>
+            <p>
+              I also recently{' '}
+              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
+                launched a course
+              </a>{' '}
+              that covers everything you need to build a web app with the Spotify API using Node
+              &amp; React.
+            </p>
+
+            <p>Here are a few technologies I’ve been working with recently:</p>
           </div>
 
           <ul className="skills-list">
@@ -163,7 +172,14 @@ const About = () => {
 
         <StyledPic>
           <div className="wrapper">
-            <Img fluid={data.avatar.childImageSharp.fluid} alt="Avatar" className="img" />
+            <StaticImage
+              className="img"
+              src="../../images/me.jpg"
+              width={500}
+              quality={95}
+              formats={['AUTO', 'WEBP', 'AVIF']}
+              alt="Headshot"
+            />
           </div>
         </StyledPic>
       </div>
