@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Julien Nicolas',
     description:
-      'Julien Nicolas is a software engineer m passionate about Data Science, Algorithms and Software Development.',
+      'Julien Nicolas is a software engineer passionate about Data Science, Algorithms and Software Development.',
     siteUrl: 'https://upbeat-wozniak-3fe3b9.netlify.app/', // No trailing slash allowed!
     image: '/cv.jpg', // Path to your image you placed in the 'static' folder
     twitterUsername: '@jul_nicol',
