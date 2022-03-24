@@ -135,17 +135,16 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
-              I'm currently doing a double-diploma 
-            with{' '}
-            <a href="https://www.etsmtl.ca/" target="_blank" rel="noreferrer">
-              ETS in Montreal
-            </a> where I am a Graduate Research Fellow researching about image manipulation detection and localization, and with 
-            <a href="https://insa-lyon.fr/" target="_blank" rel="noreferrer">
-              where I got a Computer Science and Information Technology Engineering master.
-            </a>
-
-
-            <p>Here are a few technologies I've been working with recently:</p>
+            <p>
+              I'm currently doing a double-diploma with
+              <a href="https://www.etsmtl.ca/" target="_blank" rel="noreferrer">
+                ETS in Montreal
+              </a> where I am a Graduate Research Fellow researching about image manipulation detection and localization, and with 
+              <a href="https://insa-lyon.fr/" target="_blank" rel="noreferrer">
+                where I got a Computer Science and Information Technology Engineering master.
+              </a>
+            </p>
+            <p>Here are a few technologies I’ve been working with recently:</p>
           </div>
 
           <ul className="skills-list">
