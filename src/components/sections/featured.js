@@ -322,6 +322,7 @@ const Featured = () => {
               tech
               github
               external
+              cta
             }
             html
           }
