@@ -141,8 +141,9 @@ const About = () => {
                 ETS in Montreal
               </a> where I am a Graduate Research Fellow researching about image manipulation detection and localization, and with 
               <a href="https://insa-lyon.fr/" target="_blank" rel="noreferrer">
-                where I got a Computer Science and Information Technology Engineering master.
+                INSA Lyon
               </a>
+              where I got a Computer Science and Information Technology Engineering master.
             </p>
             <p>Here are a few technologies I’ve been working with recently:</p>
           </div>
